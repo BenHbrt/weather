@@ -1,0 +1,7 @@
+@use "../styles/Variables.scss";
+
+footer {
+    height: Variables.$footer-height;
+    width: 100%;
+    background-color: Variables.$footer-background-color;
+}

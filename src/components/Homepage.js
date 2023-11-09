@@ -1,6 +1,10 @@
+import './Homepage.scss';
+
 const Homepage = () => {
     return (
-        <main>Homepage</main>
+        <main>Homepage
+            <div className="box"></div>
+        </main>
     );
 }
 

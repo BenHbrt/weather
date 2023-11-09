@@ -1,0 +1,21 @@
+@use "../styles/Variables.scss";
+
+header {
+    height: Variables.$header-height;
+    width: 100%;
+    background-color: Variables.$header-background-color;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5em;
+
+    & > img {
+        height: 4em;
+    }
+
+    & > div {
+        font-size: 3em;
+        font-weight: 800;
+    }
+}

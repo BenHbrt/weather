@@ -1,6 +1,12 @@
+import './Header.scss';
+
 const Header = () => {
+
     return (
-        <header>Header</header>
+        <header>
+            <img src={require('../img/icons/rainy-day.png')} alt="weather icon" />
+            <div>Weather</div>
+        </header>
     );
 }
 
