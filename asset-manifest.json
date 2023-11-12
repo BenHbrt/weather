@@ -1,10 +1,14 @@
 {
   "files": {
-    "main.js": "/weather/static/js/main.cb31e7e0.js",
+    "main.css": "/weather/static/css/main.fd1a3504.css",
+    "main.js": "/weather/static/js/main.cc3e21ce.js",
+    "static/media/rainy-day.png": "/weather/static/media/rainy-day.31150bd7471d99e8f2d9.png",
     "index.html": "/weather/index.html",
-    "main.cb31e7e0.js.map": "/weather/static/js/main.cb31e7e0.js.map"
+    "main.fd1a3504.css.map": "/weather/static/css/main.fd1a3504.css.map",
+    "main.cc3e21ce.js.map": "/weather/static/js/main.cc3e21ce.js.map"
   },
   "entrypoints": [
-    "static/js/main.cb31e7e0.js"
+    "static/css/main.fd1a3504.css",
+    "static/js/main.cc3e21ce.js"
   ]
 }
