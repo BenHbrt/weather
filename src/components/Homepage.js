@@ -1,27 +1,6 @@
 import './Homepage.scss';
 
-import demoLocations from '../utilities/demoLocations';
-
-import { useState, useEffect } from 'react';
-
-const Homepage = () => {
-
-    const [locations, setLocations] = useState(null);
-
-    const loadLocations = () => {
-        const data = localStorage.getItem("Locations");
-        let locationData = null
-        if (data) {
-            locationData = "DATA!"
-        } else {
-            locationData = demoLocations
-        };
-        setLocations(locationData);
-    }
-
-    useEffect(() => {
-        loadLocations()
-    }, []);
+const Homepage = ({ locations }) => {
 
     return (
         <main>

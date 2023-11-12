@@ -1,0 +1,12 @@
+.edit_locations {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    gap: 1em;
+
+    &_location {
+        box-shadow: 2px 2px 2px 2px lightgray;
+        border-radius: 10px;
+        padding: 1em;
+    }
+}
