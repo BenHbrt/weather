@@ -43,4 +43,23 @@
             }
         }
     }
+
+    &_edit {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0px;
+
+        &_icon {
+            margin-right: calc(Variables.$header-height / 3);
+
+            &:hover {
+                cursor: pointer;
+            }
+        } 
+    }
 }

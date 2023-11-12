@@ -9,6 +9,7 @@ import Location from './components/Location';
 import Credits from './components/Credits';
 import Cookies from './components/Cookies';
 import NoPage from './components/NoPage';
+import Edit from './components/Edit';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
             <Route path="/location/:loc" element={<Location />} />
             <Route path="/credits" element={<Credits />} />
             <Route path="/cookies" element={<Cookies />} />
+            <Route path="/edit" element={<Edit />} />
             <Route path="*" element={<NoPage />} />
         </Routes>
       <Footer />

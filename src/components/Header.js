@@ -5,7 +5,7 @@ import { Link, useLocation } from 'react-router-dom';
 
 const Header = () => {
 
-    const [hoverHome, setHoverHome] = useState(false);
+    const [hoverIcon, setHoverIcon] = useState(false);
     const location = useLocation();
 
     return (
@@ -13,22 +13,38 @@ const Header = () => {
             {
                 location.pathname !== "/" ?
                 <div className="header_home">
-                <div className="header_home_icon"
-                onMouseOver={() => setHoverHome(true)}
-                onMouseLeave={() => setHoverHome(false)}
-                onClick={() => setHoverHome(false)}
-                >
-                    {
-                        hoverHome ?
-                        <Link to={"/"}>
-                            <img src={require('../img/icons/home_filled.png')} alt="home icon" />
-                        </Link>
-                        :
-                        <img src={require('../img/icons/home.png')} alt="home icon" />
-                    }
+                    <div className="header_home_icon"
+                    onMouseOver={() => setHoverIcon(true)}
+                    onMouseLeave={() => setHoverIcon(false)}
+                    onClick={() => setHoverIcon(false)}
+                    >
+                        {
+                            hoverIcon ?
+                            <Link to={"/"}>
+                                <img src={require('../img/icons/home_filled.png')} alt="home icon" title="Home"/>
+                            </Link>
+                            :
+                            <img src={require('../img/icons/home.png')} alt="home icon" />
+                        }
+                    </div>
                 </div>
+                :
+                <div className="header_edit">
+                    <div className="header_edit_icon"
+                    onMouseOver={() => setHoverIcon(true)}
+                    onMouseLeave={() => setHoverIcon(false)}
+                    onClick={() => setHoverIcon(false)}
+                    >
+                        {
+                            hoverIcon ?
+                            <Link to={"/edit"}>
+                                <img src={require('../img/icons/edit_filled.png')} alt="home icon" title="Edit locations"/>
+                            </Link>
+                            :
+                            <img src={require('../img/icons/edit.png')} alt="home icon" />
+                        }
+                    </div>
                 </div>
-                : null
             }
             
             <div className="header_title">
