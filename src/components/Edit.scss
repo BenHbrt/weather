@@ -1,12 +1,35 @@
+.edit {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 2rem;
+
+    &_inputButton {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        border: 1px solid black;
+        border-radius: 18px;
+        padding-right: 8px;
+
+        &:hover {
+            background-color: lightgray;
+            border-color: lightgray;
+            cursor: pointer;
+        }
+
+        & > img {
+            height: 36px;
+        }
+
+        & > span {
+            font-size: 1.3rem;
+        }
+    }
+}
+
 .edit_locations {
     display: flex;
     flex-direction: column;
-    width: 200px;
     gap: 1em;
-
-    &_location {
-        box-shadow: 2px 2px 2px 2px lightgray;
-        border-radius: 10px;
-        padding: 1em;
-    }
 }

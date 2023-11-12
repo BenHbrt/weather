@@ -1,0 +1,37 @@
+.locationCard {
+    box-shadow: 2px 2px 2px 2px lightgray;
+    border-radius: 10px;
+    padding: 1em;
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    align-items: center;
+    justify-content: space-between;
+
+    &.disabled {
+        opacity: 0.4;
+    }
+    
+    & > span {
+        font-weight: 700;
+        font-size: 1.5rem;
+    }
+
+    &_instructions {
+        display: flex;
+        flex-direction: column;
+        font-size: 0.8rem;
+        font-weight: 300;
+        visibility: hidden;
+
+        &.hover {
+            visibility: visible;
+        }
+    }
+
+    &_instructions.disabled.hover {
+        visibility: hidden;
+    }
+
+
+}
