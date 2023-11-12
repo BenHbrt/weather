@@ -1,21 +1,46 @@
 @use "../styles/Variables.scss";
 
-header {
+.header {
     height: Variables.$header-height;
     width: 100%;
     background-color: Variables.$header-background-color;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 0.5em;
+    position: relative;
+    
+    &_title {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5em;
+        height: 100%;
+        width: 100%;
 
-    & > img {
-        height: 4em;
+        & > img {
+            height: 4em;
+        }
+    
+        & > div {
+            font-size: 3em;
+            font-weight: 800;
+        }
     }
 
-    & > div {
-        font-size: 3em;
-        font-weight: 800;
+    &_home {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0px;
+
+        &_icon {
+            margin-left: calc(Variables.$header-height / 3);
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
     }
 }
