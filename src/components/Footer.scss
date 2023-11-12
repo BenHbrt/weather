@@ -1,7 +1,31 @@
 @use "../styles/Variables.scss";
 
-footer {
+.footer {
     height: Variables.$footer-height;
     width: 100%;
     background-color: Variables.$footer-background-color;
+    display: flex;
+    flex-direction: row;
+    padding: 1.5em;
+    gap: 4em;
+
+    &_container {
+        font-size: 0.8em;
+
+        &_title {
+            color: white;
+            font-weight: 800;
+            margin-bottom: 0.5em;
+        }
+
+        & > div > a {
+            color: white;
+            font-size: 0.9em;
+            text-decoration: none;
+        }
+
+        &_icon {
+            margin-right: 0.8em;
+        }
+    }
 }

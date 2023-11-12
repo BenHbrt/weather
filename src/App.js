@@ -7,6 +7,7 @@ import Footer from './components/Footer';
 import Homepage from './components/Homepage';
 import Location from './components/Location';
 import Credits from './components/Credits';
+import Cookies from './components/Cookies';
 import NoPage from './components/NoPage';
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
             <Route exact path="/" element={<Homepage />} />
             <Route path="/location/:loc" element={<Location />} />
             <Route path="/credits" element={<Credits />} />
+            <Route path="/cookies" element={<Cookies />} />
             <Route path="*" element={<NoPage />} />
         </Routes>
       <Footer />
