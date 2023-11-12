@@ -24,7 +24,9 @@ const Header = () => {
                                 <img src={require('../img/icons/home_filled.png')} alt="home icon" title="Home"/>
                             </Link>
                             :
-                            <img src={require('../img/icons/home.png')} alt="home icon" />
+                            <Link to={"/"}>
+                                <img src={require('../img/icons/home.png')} alt="home icon" />
+                            </Link>
                         }
                     </div>
                 </div>
@@ -41,7 +43,9 @@ const Header = () => {
                                 <img src={require('../img/icons/edit_filled.png')} alt="home icon" title="Edit locations"/>
                             </Link>
                             :
-                            <img src={require('../img/icons/edit.png')} alt="home icon" />
+                            <Link to={"/edit"}>
+                                <img src={require('../img/icons/edit.png')} alt="home icon" />
+                            </Link>
                         }
                     </div>
                 </div>
