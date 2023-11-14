@@ -20,12 +20,22 @@
                 border-radius: 10px;
                 border: 1px solid black;
                 padding-left: 8px;
+                width: 320px;
             }
 
             & > div {
                 font-weight: 300;
                 font-size: 1rem;
+                height: 19px;
             }
         }
+    }
+
+    &_control {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 1.5rem;  
     }
 }

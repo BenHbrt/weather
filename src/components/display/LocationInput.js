@@ -1,8 +1,10 @@
 import './LocationInput.scss';
 
-import { useState } from 'react';
+import Button from './Button';
+
+import { useState, useEffect } from 'react';
 import { convertToStorage } from '../../utilities/localStorage';
-import { isNum, isDecimal } from '../../utilities/validation';
+import { isNum } from '../../utilities/validation';
 
 const LocationInput = ({ input, setInput, locations, setLocations }) => {
 
@@ -12,44 +14,52 @@ const LocationInput = ({ input, setInput, locations, setLocations }) => {
         lat: "",
         lon: "",
         valid: false
-    })
+    });
 
-    const handleChange = (e) => {
-        const newFormData = { ...formData };
-        newFormData[e.target.name] = e.target.value;
-        setFormData(newFormData);
+    const validateData = (data) => {
         const validObj = {locName: "", lat: "", lon: "", valid: true}
-        console.log(isNum(formData.lat))
-        if (!isNum(newFormData.lat)) {
+        if (!isNum(data.lat)) {
             validObj.lat = "Please enter a valid number.";
             validObj.valid = false;
-        }
-        if (!isDecimal(newFormData.lat)) {
-            validObj.lat = "Please enter a valid number.";
+        } else if (data.lat < -90 || data.lat > 90) {
+            validObj.lat = "Please enter a number between -90 and 90.";
             validObj.valid = false;
         }
-        if (newFormData.locName.length > 30) {
-            validObj.locName = "Location names must contain less than 30 characters.";
+        if (!isNum(data.lon)) {
+            validObj.lon = "Please enter a valid number.";
             validObj.valid = false;
-        } else if (newFormData.locName.includes("//")) {
-            validObj.locName = 'Location names must not contain "//".';
-            validObj.valid = false;
-        } else if (newFormData.locName.includes(";")) {
-            validObj.locName = 'Location names must not contain ";".';
+        } else if (data.lon < -180 || data.lon > 180) {
+            validObj.lon = "Please enter a number between -180 and 180.";
             validObj.valid = false;
         }
-        if (newFormData.locName.length == 0) {
-            validObj.locName = "Location names must contain at least 1 character.";
+        if (data.locName.length > 30) {
+            validObj.locName = "Location must contain less than 30 characters.";
+            validObj.valid = false;
+        } else if (data.locName.includes("//")) {
+            validObj.locName = 'Location must not contain "//".';
+            validObj.valid = false;
+        } else if (data.locName.includes(";")) {
+            validObj.locName = 'Location must not contain ";".';
+            validObj.valid = false;
+        }
+        if (data.locName.length === 0) {
+            validObj.locName = "Location must contain at least 1 character.";
             validObj.valid = false;
         }
         setValidated(validObj);
     }
 
+    const handleChange = (e) => {
+        const newFormData = { ...formData };
+        newFormData[e.target.name] = e.target.value;
+        setFormData(newFormData);
+    }
+
     const getCurrentLocation = () => {
         navigator.geolocation.getCurrentPosition((position) => {
             const newFormData = { ...formData };
-            newFormData.lat = position.coords.latitude
-            newFormData.lon = position.coords.longitude
+            newFormData.lat = position.coords.latitude.toString();
+            newFormData.lon = position.coords.longitude.toString();
             setFormData(newFormData);
         })
     }
@@ -102,6 +112,10 @@ const LocationInput = ({ input, setInput, locations, setLocations }) => {
         setInput(null)
     }
 
+    useEffect(() => {
+        validateData(formData);
+    }, [formData]);
+
     return (
         <div className="locationInput">
             <div className="locationInput_field">
@@ -122,25 +136,27 @@ const LocationInput = ({ input, setInput, locations, setLocations }) => {
                 <span>Longitude:</span>
                 <div className='locationInput_field_input'>
                     <input type="text" name="lon" value={formData.lon} onChange={(e) => handleChange(e)}/>
-                    <div>Comment</div>
+                    <div>{validated.lon}</div>
                 </div>
             </div>
-            
+            <div className="locationInput_control">
             {
-                input.locName ? null : validated.valid ? <button onClick={addLocation}>Add</button> : null
+                input.locName ? null : <Button text={"Add"} func={addLocation} active={validated.valid} />
             }
+            {
+                input.locName ? <Button text={"Confirm"} func={confirmLocation} active={validated.valid} /> : null
+            }
+            {
+                input.locName ? <Button text={"Delete"} func={deleteLocation} active={true} /> : null
+            }
+            
+                <Button text={"Close"} func={close} active={true} />
+            </div>
+            {/* <button onClick={() => console.log(validated)}>Valid</button>
+            <button onClick={() => {console.log(formData)}}>Data</button> */}
             {
                 input.locName ? null : <button onClick={getCurrentLocation}>Use Current Location</button>
             }
-            {
-                input.locName ? <button onClick={deleteLocation}>Delete</button> : null
-            }
-            {
-                input.locName && validated.valid ? <button onClick={confirmLocation}>Confirm</button> : null
-            }
-            <button onClick={close}>Close</button>
-            <button onClick={() => console.log(validated)}>Valid</button>
-            <button onClick={() => {console.log(formData)}}>Data</button>
         </div>
         
     );

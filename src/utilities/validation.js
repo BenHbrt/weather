@@ -1,5 +1,6 @@
 export const isNum = (num) => {
-    return /^[0-9\.]*$/g.test(num);
+    const pattern = /^-?[0-9]\d*(\.\d+)?$/;
+    return pattern.test(num);
 }
 
 export const isDecimal = (num) => {

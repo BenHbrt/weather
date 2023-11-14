@@ -1,0 +1,47 @@
+.button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 19px;
+    height: 38px;
+    padding-right: 8px;
+    
+
+    &:hover {
+        background-color: lightgray;
+        border-color: lightgray;
+        cursor: pointer;
+    }
+
+    & > span {
+        font-size: 1.3rem;
+    }
+
+    &.disabled {
+        opacity: 0.3;
+
+        &:hover {
+            cursor: auto;
+            background-color: white;
+            border-color: black;
+            opacity: 0.3;
+        }
+    }
+
+    &.Close {
+        & > img {
+            height: 26px;
+        }
+    }
+
+    &.Add,
+    &.Confirm,
+    &.Delete,
+    &.Close {
+        & > img {
+            height: 26px;
+            margin-left: 5px;
+        }
+    }
+}
