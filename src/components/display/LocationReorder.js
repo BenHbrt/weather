@@ -75,7 +75,7 @@ const LocationReorder = ({ locations, setLocations, input, selectedMode }) => {
                     {...provided.draggableProps}
                     {...provided.dragHandleProps}
                     >
-                    <LocationCard item={loc} input={input} selectedMode={selectedMode} />
+                    <LocationCard item={loc} input={input} selectedMode={selectedMode} isDragging={snapshot.isDragging} />
                     </div>
                 );
                 }}

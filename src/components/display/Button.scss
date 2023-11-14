@@ -46,7 +46,8 @@
     &.Delete,
     &.Close,
     &.Edit,
-    &.Reorder {
+    &.Reorder,
+    &.Use {
         & > img {
             height: 26px;
             margin-left: 5px;

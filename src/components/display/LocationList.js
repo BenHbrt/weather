@@ -7,7 +7,7 @@ const LocationList = ({ locations, selectedMode, setInput, setSelectedMode }) =>
         <div className="locationList">
             {
                 locations.map((loc) => {
-                    return <LocationCard item={loc} selectedMode={selectedMode} setInput={setInput} setSelectedMode={setSelectedMode}/>
+                    return <LocationCard key={loc.locName} item={loc} selectedMode={selectedMode} setInput={setInput} setSelectedMode={setSelectedMode}/>
                 })
             }
         </div>

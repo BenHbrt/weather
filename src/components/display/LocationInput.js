@@ -4,7 +4,7 @@ import Button from './Button';
 
 import { useState, useEffect } from 'react';
 import { convertToStorage } from '../../utilities/localStorage';
-import { isNum } from '../../utilities/validation';
+import { isNum, checkList } from '../../utilities/validation';
 
 const LocationInput = ({ input, setInput, locations, setLocations, setSelectedMode, selectedMode }) => {
 
@@ -34,6 +34,9 @@ const LocationInput = ({ input, setInput, locations, setLocations, setSelectedMo
         }
         if (data.locName.length > 30) {
             validObj.locName = "Location must contain less than 30 characters.";
+            validObj.valid = false;
+        } else if (!checkList(data.locName, locations)) {
+            validObj.locName = "Location name must be unique";
             validObj.valid = false;
         } else if (data.locName.includes("//")) {
             validObj.locName = 'Location must not contain "//".';
@@ -152,6 +155,9 @@ const LocationInput = ({ input, setInput, locations, setLocations, setSelectedMo
                 input.locName ? <Button text={"Confirm"} func={confirmLocation} active={validated.valid} /> : null
             }
             {
+                input.locName ? null : <Button text={"Use current location"} func={getCurrentLocation} active={true} />
+            }
+            {
                 input.locName ? <Button text={"Delete"} func={deleteLocation} active={true} /> : null
             }
             
@@ -159,9 +165,7 @@ const LocationInput = ({ input, setInput, locations, setLocations, setSelectedMo
             </div>
             {/* <button onClick={() => console.log(validated)}>Valid</button>
             <button onClick={() => {console.log(formData)}}>Data</button> */}
-            {
-                input.locName ? null : <Button text={"Use current location"} func={getCurrentLocation} active={true} />
-            }
+            
         </div>
         
     );

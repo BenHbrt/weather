@@ -13,6 +13,11 @@
         background-color: lightgray;
         cursor: pointer;
     }
+
+    &.draggable:hover,
+    &.dragging {
+        background-color: lightgray;
+    }
     
     &_name {
         font-weight: 700;
