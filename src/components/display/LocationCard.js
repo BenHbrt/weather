@@ -2,21 +2,28 @@ import './LocationCard.scss';
 
 import { useState } from 'react';
 
-const LocationCard = ({ item, setInput, input }) => {
+const LocationCard = ({ item, setInput, selectedMode }) => {
 
     const [hover, setHover] = useState(null)
 
+    const clickHandler = () => {
+        if (selectedMode === null) {
+            return;
+        } else if (selectedMode === "Edit location") {
+            setInput(item);
+        }
+    }
 
     return (
-        <div className={`locationCard ${input ? input.locName === item.locName ? "" : "disabled" : ""}`}
+        <div className={`locationCard ${selectedMode === "Edit location" ? "editable" : ""}`}
         onMouseOver={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
-        onClick={() => {if (!input) {setInput(item)}}}>
-            <span>{item.locName}</span>
-            <div className={`locationCard_instructions ${input ? "disabled" : ""} ${hover ? 'hover' : ''}`}>
-                <span>Click to edit</span>
-                <span>Hold to drag</span>
-            </div>
+        onClick={clickHandler}>
+            <span className="locationCard_name">{item.locName}</span>
+            <span className={`locationCard_instructions ${hover ? 'hover' : ''}`}>
+                {selectedMode === "Edit location" ? "Click to edit" : null}
+                {selectedMode === "Reorder locations" ? "Hold to drag" : null}
+            </span>
         </div>
     );
 }

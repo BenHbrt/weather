@@ -44,7 +44,7 @@ const Header = () => {
                             </Link>
                             :
                             <Link to={"/edit"}>
-                                <img src={require('../img/icons/edit.png')} alt="home icon" />
+                                <img src={require('../img/icons/Edit.png')} alt="home icon" />
                             </Link>
                         }
                     </div>

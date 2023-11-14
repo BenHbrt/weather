@@ -29,6 +29,11 @@
         }
     }
 
+    &.selected {
+        background-color: lightgray;
+        border-color: lightgray;
+    }
+
     &.Close {
         & > img {
             height: 26px;
@@ -36,9 +41,12 @@
     }
 
     &.Add,
+    &.Tick,
     &.Confirm,
     &.Delete,
-    &.Close {
+    &.Close,
+    &.Edit,
+    &.Reorder {
         & > img {
             height: 26px;
             margin-left: 5px;

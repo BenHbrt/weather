@@ -4,32 +4,18 @@
     justify-content: center;
     gap: 2rem;
 
-    &_inputButton {
+    &_control {
         display: flex;
-        flex-direction: row;
-        align-items: center;
-        border: 1px solid black;
-        border-radius: 19px;
-        padding-right: 8px;
-
-        &:hover {
-            background-color: lightgray;
-            border-color: lightgray;
-            cursor: pointer;
-        }
-
-        & > img {
-            height: 36px;
-        }
-
-        & > span {
-            font-size: 1.3rem;
-        }
+        flex-direction: column;
+        align-items: self-start;
+        gap: 1rem;
+        padding-top: 1rem;
     }
-}
 
-.edit_locations {
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
+    &_content {
+        width: 660px;
+        display: flex;
+        flex-direction: column;
+        align-items: self-start;
+    }
 }

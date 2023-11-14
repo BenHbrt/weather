@@ -4,25 +4,26 @@
     padding: 1em;
     display: flex;
     flex-direction: row;
-    gap: 1em;
+    gap: 0.8em;
     align-items: center;
     justify-content: space-between;
+    background-color: white;
 
-    &.disabled {
-        opacity: 0.4;
+    &.editable:hover {
+        background-color: lightgray;
+        cursor: pointer;
     }
     
-    & > span {
+    &_name {
         font-weight: 700;
         font-size: 1.5rem;
     }
 
     &_instructions {
-        display: flex;
-        flex-direction: column;
         font-size: 0.8rem;
         font-weight: 300;
         visibility: hidden;
+        width: 70px;
 
         &.hover {
             visibility: visible;

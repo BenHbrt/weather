@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react';
 import { convertToStorage } from '../../utilities/localStorage';
 import { isNum } from '../../utilities/validation';
 
-const LocationInput = ({ input, setInput, locations, setLocations }) => {
+const LocationInput = ({ input, setInput, locations, setLocations, setSelectedMode, selectedMode }) => {
 
     const [formData, setFormData] = useState(input)
     const [validated, setValidated] = useState({
@@ -74,6 +74,7 @@ const LocationInput = ({ input, setInput, locations, setLocations }) => {
         localStorage.setItem("Locations", convertToStorage(newLocationsArray));
         setInput(null);
         setLocations(newLocationsArray);
+        setSelectedMode(null);
     }
 
     const deleteLocation = () => {
@@ -105,11 +106,15 @@ const LocationInput = ({ input, setInput, locations, setLocations }) => {
         localStorage.setItem("Locations", convertToStorage(newLocationsArray));
         setInput(null);
         setLocations(newLocationsArray);
+        
     }
 
     const close = () => {
         setFormData({locName: "", lat: "", lon: ""});
         setInput(null)
+        if (selectedMode === "Add location") {
+            setSelectedMode(null);
+        }
     }
 
     useEffect(() => {
@@ -155,7 +160,7 @@ const LocationInput = ({ input, setInput, locations, setLocations }) => {
             {/* <button onClick={() => console.log(validated)}>Valid</button>
             <button onClick={() => {console.log(formData)}}>Data</button> */}
             {
-                input.locName ? null : <button onClick={getCurrentLocation}>Use Current Location</button>
+                input.locName ? null : <Button text={"Use current location"} func={getCurrentLocation} active={true} />
             }
         </div>
         
