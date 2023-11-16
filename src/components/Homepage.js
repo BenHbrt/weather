@@ -1,13 +1,15 @@
 import './Homepage.scss';
 
+import CurrentWeather from './display/CurrentWeather';
+
 const Homepage = ({ locations }) => {
 
     return (
         <main>
-            <div>
+            <div className="homepage">
                 {
                     locations ? locations.map((location) => {
-                        return <div key={location.locName}>{location.locName}</div>
+                        return <CurrentWeather loc={location}/>
                     })
                     : null
                 }

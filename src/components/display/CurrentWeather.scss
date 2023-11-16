@@ -1,0 +1,53 @@
+.currentweather {
+    box-shadow: 2px 2px 2px 2px lightgray;
+    background-color: white;
+    border-radius: 1em;
+    margin-bottom: 1em;
+    padding: 1em;
+    width: 15em;
+
+    &:hover {
+        cursor: pointer;
+        background-color: lightgray;
+    }
+
+    &_title {
+        font-weight: 700;
+        font-size: 1.5em;
+    }
+
+    &_main {
+        display: flex;
+        flex-direction: row;
+        margin: 0.5em 0;
+
+        &_temp {
+            font-weight: 600;
+            font-size: 1.3em;
+            align-self: center;
+            margin: 0 1em;
+        }
+
+        &_weather {
+
+            & > img {
+                width: 2.5em;
+                margin-top: 0.2em;
+            }
+        }
+
+    }
+
+    &_wind {
+
+        & > img {
+            height: 1rem;
+            margin-right: 0.1rem;
+        }
+    }
+
+    &_update {
+        font-size: 0.5rem;
+        font-style: italic;
+    }
+}
